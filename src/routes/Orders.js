@@ -18,6 +18,13 @@ const Orders = () => {
   const [orderData, setOrderData] = useState({})
   const [itemId, setId] = useState("")
 
+  const getTotal = (data, item) => {
+    const totalReduce = data.reduce((total, current) => {
+      return total += parseInt(current[item])
+    }, 0)
+    return totalReduce
+  }
+
   const handleSort = (withWhat, ascending) => {
     const sorted = displayList.slice().sort((a, b) => {
       if (ascending) {
@@ -97,6 +104,17 @@ const Orders = () => {
                 </tr>
               )
             }) }
+                <tr className="hover">
+                  <th></th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>{getTotal(displayList, "partCount")}</td>
+                  <td>{getTotal(displayList, "price")}</td>
+                  <td></td>
+                  <td></td>
+                </tr>
           </tbody>
         </table>
       </div>
