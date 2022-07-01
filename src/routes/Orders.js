@@ -104,19 +104,12 @@ const Orders = () => {
                 </tr>
               )
             }) }
-                <tr className="hover">
-                  <th></th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>{getTotal(displayList, "partCount")}</td>
-                  <td>{getTotal(displayList, "price")}</td>
-                  <td></td>
-                  <td></td>
-                </tr>
           </tbody>
         </table>
+        <div className="flex flex-row justify-around">
+          <p>TOTAL PART COUNT: {getTotal(displayList, "partCount")}</p>
+          <p>TOTAL PRICE: {getTotal(displayList, "price")}</p>
+        </div>
       </div>
     </div>
   )
