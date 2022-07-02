@@ -10,6 +10,7 @@ import UpdateButton from "../components/UpdateButton.Table"
 import SortingButton from "../components/SortingButton"
 import generatePDF from "../services/reportGenerator"
 import PrintButton from "../components/PrintButton"
+import ExportCSVButton from "../services/excelReportGenerator"
 
 const Orders = () => {
   const [data, setData] = useOutletContext()
@@ -67,6 +68,7 @@ const Orders = () => {
       <div className="flex flex-row justify-between">
         <Filter orderList={ data.orders } setDisplayList={ setDisplayList } />
         <div className="flex flex-row gap-4 pb-4">
+          <ExportCSVButton data={displayList} />
           <PrintButton onClick={ () => generatePDF(displayList) } />
           <AddCustomer />
           <AddOrder />
