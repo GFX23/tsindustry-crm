@@ -7,13 +7,14 @@ const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
 function ExportCSVButton({data}) {
   return (
-    <ExcelFile element={<button>Download Data</button>}>
-    <ExcelSheet data={data} name="Employees">
-        <ExcelColumn label="Name" value="name"/>
-        <ExcelColumn label="Wallet Money" value="amount"/>
-        <ExcelColumn label="Gender" value="sex"/>
-        <ExcelColumn label="Marital Status"
-                     value={(col) => col.is_married ? "Married" : "Single"}/>
+    <ExcelFile element={<button className="btn btn-accent">XLSX</button>} filename="report">
+    <ExcelSheet data={data} name="Zakázky">
+        <ExcelColumn label="Datum" value="date"/>
+        <ExcelColumn label="Zákazník" value="customer"/>
+        <ExcelColumn label="Zakázka" value="orderNum"/>
+        <ExcelColumn label="Název dílu" value="partName"/>
+        <ExcelColumn label="Počet dílu" value="partCount"/>
+        <ExcelColumn label="Cena" value="price"/>
     </ExcelSheet>
 </ExcelFile>
   );
